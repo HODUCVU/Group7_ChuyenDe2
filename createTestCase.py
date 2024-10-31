@@ -11,21 +11,21 @@ def generate_data(N, M):
     D = np.random.randint(100 + M*5, 500 + M*5, size=M)    # Nhu cầu sản phẩm
     return C, P, D
 
+if __name__ == '__main__':
+    # Tạo danh sách các testcase
+    Ns = [5, 10, 50, 150, 200, 250, 300, 350,
+        350, 400, 450, 500, 550]  # Số nhà máy
+    Ms = [5, 10, 50, 100, 100, 150, 150, 200,
+        200, 250, 300, 350, 450]  # Số loại sản phẩm
 
-# Tạo danh sách các testcase
-Ns = [5, 10, 50, 150, 200, 250, 300, 350,
-      350, 400, 450, 500, 550]  # Số nhà máy
-Ms = [5, 10, 50, 100, 100, 150, 150, 200,
-      200, 250, 300, 350, 450]  # Số loại sản phẩm
+    testcases = []
+    for N, M in zip(Ns, Ms):
+        C, P, D = generate_data(N, M)
+        testcases.append({'N': N, 'M': M, 'C': C.tolist(),
+                        'P': P.tolist(), 'D': D.tolist()})
 
-testcases = []
-for N, M in zip(Ns, Ms):
-    C, P, D = generate_data(N, M)
-    testcases.append({'N': N, 'M': M, 'C': C.tolist(),
-                     'P': P.tolist(), 'D': D.tolist()})
-
-# Lưu testcases vào file
-output_file = 'testcases.json'
-with open(output_file, 'w') as f:
-    json.dump(testcases, f, indent=4)
-    print("done created!")
+    # Lưu testcases vào file
+    output_file = 'testcases.json'
+    with open(output_file, 'w') as f:
+        json.dump(testcases, f, indent=4)
+        print("done created!")

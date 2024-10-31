@@ -4,8 +4,6 @@ import cvxpy as cp
 from readJson import read_testcases
 
 # Hàm giải bài toán
-
-
 def solveProblem(N, M, C, P, D):
     X = cp.Variable((N, M), nonneg=True)
     objective = cp.Minimize(cp.sum(cp.multiply(C, X)))
@@ -15,8 +13,6 @@ def solveProblem(N, M, C, P, D):
     return problem, X
 
 # Hàm tính thời gian chạy
-
-
 def time_solver(N, M, C, P, D):
     start_time = time.time()
     problem, X = solveProblem(N, M, C, P, D)  # Gọi hàm giải bài toán

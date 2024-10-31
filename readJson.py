@@ -2,8 +2,6 @@ import numpy as np
 import json
 
 # Hàm đọc file JSON và trả về các mảng N, M, C, P, D
-
-
 def read_testcases(file_path):
     with open(file_path, 'r') as f:
         testcases = json.load(f)
@@ -32,14 +30,14 @@ def read_testcases(file_path):
 
     return N_list, M_list, C_list, P_list, D_list
 
+if __name__ == '__main__':
+    # Đọc file testcases.json và lưu các giá trị vào danh sách riêng
+    file_path = 'testcases.json'
+    N_list, M_list, C_list, P_list, D_list = read_testcases(file_path)
 
-# Đọc file testcases.json và lưu các giá trị vào danh sách riêng
-# file_path = 'testcases.json'
-# N_list, M_list, C_list, P_list, D_list = read_testcases(file_path)
-
-# In thử một số kết quả
-# print("N_list:", N_list)
-# print("M_list:", M_list)
-# print("C_list[0]:", C_list[0])  # In giá trị ma trận C của testcase đầu tiên
-# print("P_list[0]:", P_list[0])  # In giá trị P của testcase đầu tiên
-# print("D_list[0]:", D_list[0])  # In giá trị D của testcase đầu tiên
+    # In thử một số kết quả
+    print("N_list:", N_list)
+    print("M_list:", M_list)
+    print("C_list[0]:", C_list[0])  # In giá trị ma trận C của testcase đầu tiên
+    print("P_list[0]:", P_list[0])  # In giá trị P của testcase đầu tiên
+    print("D_list[0]:", D_list[0])  # In giá trị D của testcase đầu tiên
